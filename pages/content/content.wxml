@@ -1,0 +1,165 @@
+<!--pages/content/content.wxml-->
+<view class="page">
+    <view class="titlePic">
+      <image src="{{job.company_img}}"></image>
+    </view>
+
+    <view class="content-hd">
+        <text class="content-hd-text1">{{job.wages}}/{{job.wages_class}}</text>
+        <text class="content-hd-text2">已报名{{job.num}}人</text>
+    </view>
+
+    <view class="content-title">
+      <view class="content-title-name">
+        <text class="content-title-name-text1">{{job.job_name}}</text>
+        <view bindtap="signUp" data-jobid="{{job.id}}" ><text class='bao'>我要报名</text></view>
+      </view>
+      <view class="content-title-tip">
+        <text wx:for="{{job.tips}}">{{item}}</text>
+      </view>
+      <view class="content-title-dress">
+        <text>{{job.adress}}</text>
+      </view>
+    </view>
+
+    <view class="content-info">
+
+        <view class="content-info-subsidy">
+          <text>补贴说明</text>
+        </view>
+        <view class="content-info-subsidy">
+          <text class="content-info-subsidy-text">{{job.subsidy}}</text>
+        </view>
+          <view class="content-info-subsidy">
+          <text>推荐奖励</text>
+        </view>
+        <view class="content-info-subsidy">
+          <text class="content-info-subsidy-text">{{job.presen}}</text>
+        </view>
+        
+    </view>
+
+     <view wx:if="{{job.gongzi_img}}" class="content-info2">
+        <view class="content-info2-subsidy">
+          <text>工资单</text>
+        </view>
+        <view class="shuaitu">
+          <block wx:for="{{job.gongzi_img}}">
+          <image bindtap="imgYu2" data-list="{{job.gongzi_img}}" data-src="{{item}}" wx:if="{{item!=''}}" class='shuaitu1' src='{{item}}'></image>
+         </block>
+        </view>       
+    </view>
+
+    <view class="content-info2">
+        <view class="content-info2-subsidy">
+          <text>薪资说明</text>
+        </view>
+        <view class="content-info2-subsidy">
+          <text class="content-info2-subsidy-textall">{{job.wage_stat}}\n\n\n</text>
+        </view>       
+    </view>
+
+    <view wx:if="{{job.huanjing_img}}" class="content-info2">
+        <view class="content-info2-subsidy">
+          <text>公司环境</text>
+        </view>
+        <view class="shuaitu">
+          <block wx:for="{{job.huanjing_img}}">
+          <image bindtap="imgYu2" data-list="{{job.huanjing_img}}" data-src="{{item}}" wx:if="{{item!=''}}" class='shuaitu1' src='{{item}}'></image>
+         </block>
+        </view>       
+    </view>
+     <view class="content-info2">
+        <view class="content-info2-subsidy">
+          <text>食宿说明</text>
+        </view>
+        <view class="content-info2-subsidy">
+          <text class="content-info2-subsidy-textall">{{job.accommod}}\n\n\n</text>
+        </view>       
+    </view>
+    <view class="content-info2">
+        <view class="content-info2-subsidy">
+          <text>招聘要求</text>
+        </view>
+        <view class="content-info2-subsidy">
+          <text class="content-info2-subsidy-textall">{{job.job_req}}\n\n\n</text>
+        </view>
+           
+    </view>
+    <view class="content-info2">
+        <view class="content-info2-subsidy">
+          <text>温馨提示</text>
+        </view>
+        <view class="content-info2-subsidy">
+          <text class="content-info2-subsidy-textall">{{job.prompt}}\n\n\n</text>
+        </view>       
+    </view>
+    <view class="content-info2">
+        <view class="content-info2-subsidy">
+          <text>公司介绍</text>
+        </view>
+        <view class="content-info2-subsidy">
+          <text class="content-info2-subsidy-textall">{{job.company_cont}}\n\n\n</text>
+        </view>       
+    </view>
+
+
+
+</view>
+<loading hidden="{{hidden}}">数据加载中...</loading>
+<view class="bottom-tap">
+    <view class='bottom-tap-left'><contact-button type="default-light" size="20" session-from="weapp">微信</contact-button></view>
+    <view bindtap="clickArea" class='bottom-tap-mid'>电话咨询</view>
+    <navigator open-type="switchTab" url='../index/index' class='bottom-tap-right1' >返回首页</navigator>
+    <view bindtap="signUp" data-jobid="{{job.id}}" class='bottom-tap-right'>马上报名</view>
+
+</view>
+
+
+<!--弹窗-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="modal-title">请先绑定用户信息</view>
+  <view class="modal-content">
+    <view class="modal-input">
+      <input name="name" placeholder-class="input-holder" type="text" maxlength="4"  class="input" placeholder="请输入姓名"></input>
+    </view>
+     <view class="modal-input">
+     <view class='modal-input-left'>
+      <input bindchange="blurTel"    name="phone" placeholder-class="input-holder" type="number" maxlength="11"  class="input1" placeholder="请输入手机号"></input>
+      </view>
+      <view class='modal-input-right'>
+       <button wx:if="{{show==1}}" bindtap='clickVerify'  class="befor" >获取验证码</button>
+                     <button wx:else disabled="true"  class="after" >重发{{last_time}}秒</button>
+      </view>
+    </view>
+    <view class="modal-input">
+      <input name="yanzheng" placeholder-class="input-holder" type="number" maxlength="4"  class="input" placeholder="请输入验证码"></input>
+    </view>
+  </view>
+  
+
+
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+    <button class="btn-confirm" type="primary" form-type="submit">确定</button>
+    
+  </view>
+</form>
+</view>
+
+
+
+
+<!--弹窗-->
+<view class="modal-mask"  catchtouchmove="preventTouchMove" wx:if="{{showModal1}}"></view>
+<view class="modal-dialog" wx:if="{{showModal1}}">
+<view class="modal-title">客服列表</view>
+<button type="default" bindtap="calling">点击拨打客服13375157537</button>
+<button type="default" bindtap="calling1">点击拨打客服13616262260</button>
+<button type="default" bindtap="calling2">点击拨打客服13914990484</button>
+<button type="default" bindtap="calling3">退出</button>
+    
+  
+</view>

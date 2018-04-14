@@ -1,0 +1,74 @@
+{
+  "pages":[
+    
+    "pages/index/index",
+    "pages/work/work",
+    "pages/tuijian/tuijian",
+    "pages/tel/tel",
+    "pages/user/user",
+    "pages/content/content",
+    "pages/userinfo/userinfo",
+    "pages/mytuijian/mytuijian",
+    "pages/mytuijian1/mytuijian1",
+    "pages/mysign/mysign",
+    "pages/news/news",
+    "pages/newsinfo/newsinfo",
+    "pages/wx/gaobu/gaobu",
+    "pages/wx/gaoxin/gaoxin",
+    "pages/wx/linshi/linshi",
+    "pages/place/place",
+    "pages/viplist/viplist",
+    "pages/wx/waidi/waidi"
+    
+    
+    
+    
+    
+    
+    
+  ],
+  
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#FF9933",
+    "navigationBarTitleText": "昆山诚乐打工网",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#EB6000",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "pic/home1.png",
+        "selectedIconPath": "pic/home2.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/work/work",
+        "iconPath": "pic/work1.png",
+        "selectedIconPath": "pic/work2.png",
+        "text": "今日招聘"
+      },
+      {
+        "pagePath": "pages/tuijian/tuijian",
+        "iconPath": "pic/tui1.png",
+        "selectedIconPath": "pic/tui2.png",
+        "text": "推荐奖励"
+      },      
+      {
+        "pagePath": "pages/news/news",
+        "iconPath": "pic/tel1.png",
+        "selectedIconPath": "pic/tel2.png",
+        "text": "补贴风采"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "pic/wo1.png",
+        "selectedIconPath": "pic/wo2.png",
+        "text": "我的"
+      }           
+    ]
+  }
+}

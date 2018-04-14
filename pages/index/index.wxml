@@ -1,0 +1,221 @@
+<!--index.wxml-->
+<view wx:if="{{show1}}" class="page">
+<!-------------------------------->
+<view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索工作：如昆山、纬创</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+        <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+            <navigator url="../content/content?id={{item.id}}" wx:for="{{serchinfo}}"  class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>{{item.job_name}}</view>
+                </view>
+            </navigator>
+          
+            
+          
+        </view>
+<!-------------------------------->
+<view class="page__hd">
+
+    
+          <navigator  url='../wx/linshi/linshi'><image src="http://wei1.ksweizhan.cn/layui/images/1/1.jpg" class="slide-image" /></navigator>
+  
+
+</view>
+
+ <!--导航  -->
+  <view class="nav" >
+    <view class="nav-item">
+
+      <view class="nav-item-content">
+          <view bindtap="urlTo" data-url="">
+            <image src="../../pic/1.png"></image>
+            <text>全部职位</text>
+          </view>
+      </view>
+
+      <view class="nav-item-content">
+          <view bindtap="urlTo" data-url="hot_gaobu">
+            <image src="../../pic/3.png"></image>
+            <text>高补贴</text>
+          </view>
+      </view>
+
+      <view class="nav-item-content">
+      
+          <view bindtap="urlTo" data-url="hot_gaoxin">
+            <image src="../../pic/2.png"></image>
+            <text>高薪资</text>
+          </view>
+      </view>
+
+      
+
+      <view class="nav-item-content">
+          <view bindtap="urlTo" data-url="temporary">
+            <image src="../../pic/4.png"></image>
+            <text>临时工</text>
+          </view>
+      </view>
+
+       <view class="nav-item-content">
+          <view style="position:relative;">  
+          <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:30rpx;left:30rpx;">  
+        </contact-button>
+         <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:30rpx;left:70rpx;">  
+        </contact-button>  
+         <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:30rpx;left:120rpx;">  
+        </contact-button>   
+        <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:80rpx;left:30rpx;">  
+        </contact-button>
+         <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:80rpx;left:70rpx;">  
+        </contact-button>  
+         <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:80rpx;left:120rpx;">  
+        </contact-button>    
+              <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:120rpx;left:120rpx;">  
+        </contact-button>   
+        <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:120rpx;left:30rpx;">  
+        </contact-button>
+         <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:120rpx;left:70rpx;">  
+        </contact-button>  
+         <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:120rpx;left:120rpx;">  
+        </contact-button>  
+   
+          
+            <image src="../../pic/5.png"></image>
+            <text>微信咨询</text>
+         </view> 
+      </view>
+      
+       <view class="nav-item-content">
+          <navigator url="../tel/tel">
+            <image src="../../pic/7.png"></image>
+            <text>求职热线</text>
+          </navigator>
+      </view>
+       <view class="nav-item-content">
+          <view bindtap="urlTo1" data-url="../tuijian/tuijian">
+            <image src="../../pic/6.png"></image>
+            <text>推荐奖励</text>
+          </view>
+      </view>
+
+      
+       <view bindtap='gomap'  class="nav-item-content">
+            
+            <image src="../../pic/8.png"></image>
+            <text>门店导航</text>
+          
+      </view>
+      
+
+    </view>
+  </view>
+  <!--------滚动----------->
+<view class='topnews'>
+  <view class='topnews-left'>
+    <image class='topnews-left-pic' src='https://wei1.ksweizhan.cn/layui/images/headline.png'></image></view>
+  <view class='topnews-right'>
+   <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+    
+      
+         <swiper-item wx:for="{{topnews.news}}">
+         <navigator url='../newsinfo/newsinfo?id={{item.id}}'>
+           <view class="swiper_item">{{item.news_title}}<image src='http://wei1.ksweizhan.cn/layui/images/1/4.gif'></image></view>
+           </navigator>
+          
+        </swiper-item>
+        
+        <swiper-item wx:for="{{topnews.signs}}">
+         <navigator url='../newsinfo/newsinfo?id={{item.id}}'>
+           <view class="swiper_item">恭喜:\t{{item.name}}\t{{item.job_state}}\t{{item.job_name
+}}\t补<text style='color:red'>{{item.fan}}</text><image src='https://wei1.ksweizhan.cn/layui/images/subsidy.png'></image></view>
+           </navigator>
+        </swiper-item>
+        
+        
+  </swiper>
+  </view>
+
+</view>
+<!--VIP职位列表  -->
+<view class='viplist'>
+ <navigator url='../viplist/viplist'><image class='viptui' src='https://wei1.ksweizhan.cn/layui/images/timg2.gif' ></image></navigator>
+</view>
+<!--职位列表  -->
+<view class="job">
+  <view class="job-class">
+    <view bindtap="getJobList" class="{{choosecss1}}">今日招聘</view>
+    <view bindtap="getJobListGaoBu" class="{{choosecss2}}">高补贴</view>
+    <view bindtap="getJobListGaoXin" class="{{choosecss3}}">高薪资</view>
+    <view bindtap="getJobListTemporary" class="{{choosecss4}}">临时工</view>
+    <view bindtap="getJobListWai" class="{{choosecss5}}">外地名企</view>
+    <!--
+    <view bindtap="urlTo" data-url=""  class="job-class-more">外地名企</view>
+    -->
+  </view>
+
+  
+  <navigator url="../content/content?id={{item.id}}" wx:for="{{list}}" class="job-list">
+    
+      <view  class="job-list-left">
+          <view class="jiaobiao1">
+          <image wx:if="{{item.ishot=='1'}}" src="../../pic/jiaobiao.png" class="jiaobiao"></image>
+         
+          <image class='image2' src="{{item.company_logo}}"></image>
+          </view>
+      </view>
+      
+      <view class="job-list-right">
+            <view class="job-list-right-context1">
+                <text class="job-list-right-context1-text1">{{item.job_name}}</text>
+                <view   class="job-list-right-context1-text2">报名{{item.num}}人</view> 
+            </view>
+
+            <view class="job-list-right-context2">
+                
+                <text class="job-list-right-context2-text1">{{item.city}}</text>
+                <text class="job-list-right-context2-text2">{{item.wages}}元/{{item.wages_class}}</text>
+                
+            </view>
+            
+              <view class="job-list-right-context3">
+                <text class="job-list-right-context3-icon" >补</text>
+                <text class="job-list-right-context3-text1">{{item.subsidy}}</text>
+                
+             </view>
+             
+               <view class="job-list-right-context4">
+               <text class="job-list-right-context4-icon" >荐</text>
+                <text class="job-list-right-context4-text1">{{item.presen
+}}/人</text>
+                
+            </view>
+      </view>
+      
+    
+  </navigator>
+<view bindtap="urlTo" data-url="" class="job-class">
+查看更多
+</view>
+</view>
+
+
+</view>
+<loading hidden="{{hidden}}">数据加载中...</loading>
+
+<view wx:if="{{!show1}}" ><image src='https://wei1.ksweizhan.cn/layui/images/ba.jpg' style='width:100%;height:800px'></image></view>
+

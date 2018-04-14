@@ -1,0 +1,22 @@
+/* pages/userinfo/userinfo.wxss */
+
+page{
+  background-color: white;
+  
+}
+.befor{
+
+ 
+  background-color:white;
+  height: 70rpx;
+  font-size: 11pt;
+  line-height:28pt;
+}
+.after{
+
+ 
+  background-color:#eeeeee;
+  height: 70rpx;
+  font-size: 11pt;
+  line-height:28pt;
+}

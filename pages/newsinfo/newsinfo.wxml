@@ -1,0 +1,14 @@
+<!--pages/newsinfo/newsinfo.wxml-->
+
+  <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_text">
+                    <view class="weui-article__h1">{{info.news_title}}</view>
+                    <view class="weui-media-box__desc">发布时间：{{info.add_time}}</view>
+                </view>
+                
+            </view>
+        <import src="../../wxParse/wxParse.wxml"/>
+<!--这里data中article为bindName-->
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+
+<loading hidden="{{hidden}}">数据加载中...</loading>

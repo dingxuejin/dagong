@@ -1,0 +1,16 @@
+/* pages/mytuijian/mytuijian.wxss */
+page{
+  background-color: white;
+}
+image{
+  width:100%;
+  
+}
+.text1{
+  font-size: 12px;
+  width: 95%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #666666;
+}

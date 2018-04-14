@@ -1,0 +1,40 @@
+<!--pages/mysign/mysign.wxml-->
+<!--pages/mytuijian1/mytuijian1.wxml-->
+<view class="weui-panel">
+<block wx:if="{{sign==null}}">
+            <view class="weui-panel__hd">您还没有报名记录</view>
+
+</block>
+<block wx:else>
+    <view class="weui-panel__hd">您的报名记录如下：</view>
+            <view wx:for="{{sign}}" class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">{{item.job_name}}</view>
+                    <view class="weui-media-box__desc">{{item.subsidy}}</view>
+                    
+                      <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">请于11点在门店集合:昆山市枫景苑B区73栋瑞帆</view>
+                        
+                    </view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">报名时间:</view>
+                        <view class="weui-media-box__info__meta">{{item.add_time}}</view>
+                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.job_state }}</view>
+                    </view>
+                    <view style='color:red' wx:if="{{item.job_state=='面试成功' || item.job_state=='反费审核中' || item.job_state=='反费已领取'}}" class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">您的返费:</view>
+                        <view class="weui-media-box__info__meta">{{item.fan}}</view>
+                        <view class="weui-media-box__info__meta">领取时间:</view>
+                         <view class="weui-media-box__info__meta">{{item.fan_data}}</view>
+                        
+                    </view>
+                    <view  wx:if="{{item.job_state=='面试成功'}}" class="weui-media-box__info">
+                        <button bindtap="fanAct" data-signid="{{item.id}}" data-job_name="{{item.job_name}}" data-signid="{{item.id}}" data-name="{{item.name}}" data-phone="{{item.phone}}" data-fan="{{item.fan}}" data-fan_data="{{item.fan_data}}" class="weui-btn" type="primary">申请返费</button>
+                  
+                        
+                    </view>
+                </view>
+            </view>
+</block>         
+</view>
+

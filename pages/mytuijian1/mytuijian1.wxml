@@ -1,0 +1,34 @@
+<!--pages/mytuijian1/mytuijian1.wxml-->
+<view class="weui-panel">
+<block wx:if="{{sign==null}}">
+            <view class="weui-panel__hd">您推荐的好友还未报名</view>
+
+</block>
+<block wx:else>
+   <view  class="weui-panel__hd">当您推荐的朋友，面试成功后可申请领取奖励</view>
+            <view wx:for="{{sign}}" class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">{{item.job_name}}</view>
+                    <view class="weui-media-box__desc">{{item.subsidy}}</view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">报名时间:</view>
+                        <view class="weui-media-box__info__meta">{{item.add_time}}</view>
+                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.job_state }}</view>
+                    </view>
+                       <view style='color:red' wx:if="{{item.job_state=='面试成功' || item.job_state=='反费审核中' || item.job_state=='反费已领取'}}" class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">我的奖励:</view>
+                        <view class="weui-media-box__info__meta">{{item.tui}}</view>
+                        <view class="weui-media-box__info__meta">领取时间:</view>
+                         <view class="weui-media-box__info__meta">{{item.tui_data}}</view>
+                         <view class="weui-media-box__info__meta">{{item.is_presen}}</view>
+                        
+                    </view>
+                    <view  wx:if="{{item.job_state=='面试成功' && item.is_presen=='等待领取'}}" class="weui-media-box__info">
+                        <button bindtap="tuiAct" data-signid="{{item.id}}" data-job_name="{{item.job_name}}" data-signid="{{item.id}}" data-name="{{item.name}}" data-phone="{{item.phone}}" data-parent_id="{{item.parent_id}}" data-tui="{{item.tui}}" data-tui_data="{{item.tui_data}}" class="weui-btn" type="primary">申请奖励</button>
+                  
+                        
+                    </view>
+                </view>
+            </view>
+</block>         
+</view>

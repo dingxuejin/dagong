@@ -1,0 +1,6 @@
+<!--pages/tel/tel.wxml-->
+<button type="default" bindtap="calling">点击拨打客服13375157537</button>
+<button type="default" bindtap="calling1">点击拨打客服13616262260</button>
+<button type="default" bindtap="calling2">点击拨打客服13914990484</button>
+
+

@@ -1,0 +1,52 @@
+<!--pages/tuijian/tuijian.wxml-->
+
+<view><image src="https://wei1.ksweizhan.cn/layui/images/tui1.jpg" mode="widthFix"></image></view>
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">姓名</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input" type="text" maxlength="4" name="name" placeholder="请输入被推荐人姓名"/>
+                  </view>
+              </view>
+               <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">手机</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input name="phone" type='number' maxlength="11" class="weui-input" placeholder="请输入被推荐人手机号"/>
+                  </view>
+              </view>
+
+
+
+
+          
+          </view> 
+          <view class="tips">第一步：提交好友的真实信息</view>
+           <view class="tips">第二步：让好友绑定您推荐的手机号码：我的——我的信息——绑定手机号和填写姓名</view>
+          <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" form-type="submit">确定</button>
+            </view>
+</form>
+
+
+ <!--
+                <view class="weui-cell weui-cell_input weui-cell_vcode">
+              
+                <view class="weui-cell__hd">
+                    <view class="weui-label">验证码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入验证码" />
+                </view>
+                
+                <view class="weui-cell__ft">
+                    <image class="weui-vcode-img" src="../../pic/vcode.jpg" style="width: 108px"></image>
+                </view>
+            </view>
+                --->

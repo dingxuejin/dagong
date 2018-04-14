@@ -1,0 +1,64 @@
+<!--pages/userinfo/userinfo.wxml-->
+<!--pages/tuijian/tuijian.wxml-->
+
+
+
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">姓名</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input name="name" wx:if="{{name==null}}" type="text" maxlength="4"  class="weui-input" placeholder="请完善您的姓名"/>
+                      <input name="name" wx:else class="weui-input" type="text" maxlength="4" value="{{name}}"/>
+                  </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">手机</view>
+                    </view>
+                   <view class="weui-cell__bd">
+                        <input bindblur="blurTel" name="phone" type='number' maxlength="11" wx:if="{{phone==null}}" class="weui-input" placeholder="请绑定手机号" />
+                        <input bindblur="blurTel" name="phone" type='number' maxlength="11" wx:else class="weui-input" value="{{phone}}"/>
+                    </view>
+                
+               <!-----获取验证码按钮位置----->
+
+                <view class="weui-cell__ft">
+                    <button wx:if="{{show==1}}" bindtap='clickVerify'  class="befor" >获取验证码</button>
+                     <button wx:else disabled="true"  class="after" >重新发送{{last_time}}秒</button>
+                </view>
+                
+              </view>
+              
+          <!-----输入验证码位置----->
+
+          <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">验证码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input type='number' name="yanzheng" class="weui-input" placeholder="请输入验证码" />
+                </view>
+                
+            </view>
+
+             
+          </view> 
+          <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" form-type="submit">提交</button>
+          </view>
+
+</form>
+
+
+<!-----输入验证码位置-----
+    
+
+-------------->
+<!-----获取验证码按钮位置-
+
+                ---->

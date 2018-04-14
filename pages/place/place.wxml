@@ -1,0 +1,80 @@
+<!--pages/place/place.wxml-->
+<view class='head'>
+  <image class='head_pic' src='../../pic/logo.png'></image>
+  <text>绑定手机号码即可成为VIP会员</text>
+</view>
+<form bindsubmit="formSubmit" bindreset="formReset">
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label"><image class="label-pic" src='../../pic/d1.png'></image></view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input placeholder-class="placeholder" name="name" wx:if="{{userInfo.name==null}}" type="text" maxlength="4"  class="weui-input" placeholder="请完善您的姓名"/>
+                      <input  name="name" wx:else class="weui-input" type="text" maxlength="4" value="{{userInfo.name}}"/>
+                  </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label"><image class="label-pic" src='../../pic/d2.png'></image></view>
+                    </view>
+                   <view class="weui-cell__bd">
+                        <input placeholder-class="placeholder" bindinput="blurTel" name="phone" type='number' maxlength="11" wx:if="{{userInfo.phone==null}}" class="weui-input" placeholder="请绑定手机号" />
+                        <input bindblur="blurTel" name="phone" type='number' maxlength="11" wx:else class="weui-input" value="{{userInfo.phone}}"/>
+                    </view>
+                
+               <!-----获取验证码按钮位置----->
+
+                <view class="weui-cell__ft">
+                    <button wx:if="{{show==1}}" bindtap='clickVerify'  class="befor" >获取验证码</button>
+                     <button wx:else disabled="true"  class="after" >重新发送{{last_time}}秒</button>
+                </view>
+                
+              </view>
+              
+          <!-----输入验证码位置----->
+
+          <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label"><image class="label-pic" src='../../pic/d3.png'></image></view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input placeholder-class="placeholder" type='number' name="yanzheng" class="weui-input" placeholder="请输入验证码" />
+                </view>
+                
+            </view>
+
+             
+          </view> 
+          <view class="weui-btn-area">
+            <button  style="background-color:#FF9933" type="primary" form-type="submit">提交</button>
+          </view>
+
+</form>
+
+<view class="foot">
+  <view class="line">
+    <view class="line-text">咨询客服</view>
+  </view>
+  <view class="icon1">
+    <view class="icon2">
+    <image src='../../pic/l.png'></image><text>微信咨询</text>
+     <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:30rpx;left:60rpx;">  
+        </contact-button>
+         <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:30rpx;left:90rpx;">  
+        </contact-button>
+        <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:30rpx;left:130rpx;">  
+        </contact-button>
+        <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:70rpx;left:60rpx;">  
+        </contact-button>
+        <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:70rpx;left:90rpx;">  
+        </contact-button>
+        <contact-button class="contact"  size="12" session-from="weapp" style="opacity:0;position:absolute;top:70rpx;left:130rpx;">  
+        </contact-button>
+    </view>
+    <view class="icon3"><navigator url='../tel/tel'><image src='../../pic/r.png'></image><text>电话咨询</text></navigator></view>
+    <view class="icon3"><navigator open-type="switchTab"  url='../index/index'><image src='../../pic/index.png'></image><text>首页看看</text></navigator></view>
+  </view>
+  
+</view>

@@ -1,0 +1,90 @@
+<!--pages/viplist/viplist.wxml-->
+<!--pages/work/work.wxml-->
+<!--index.wxml-->
+<view class="page">
+<!-------------------------------->
+<view class="weui-search-bar11">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索工作：如昆山、纬创</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+        <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+            <navigator url="../content/content?id={{item.id}}" wx:for="{{serchinfo}}"  class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>{{item.job_name}}</view>
+                </view>
+            </navigator>
+          
+            
+          
+        </view>
+<!-------------------------------->
+
+
+
+<!--职位列表  -->
+<view class="job">
+
+
+  <navigator url="../content/content?id={{item.id}}" wx:for="{{list}}" class="job-list">
+    
+      <view  class="job-list-left">
+          <view class="jiaobiao1">
+          <image wx:if="{{item.ishot=='1'}}" src="../../pic/jiaobiao.png" class="jiaobiao"></image>
+         
+          <image class='image2' src="{{item.company_logo}}"></image>
+          </view>
+      </view>
+      
+      <view class="job-list-right">
+            <view class="job-list-right-context1">
+                <text class="job-list-right-context1-text1">{{item.job_name}}</text>
+                <view   class="job-list-right-context1-text2">报名{{item.num}}人</view> 
+            </view>
+
+            <view class="job-list-right-context2">
+                
+                <text class="job-list-right-context2-text1">{{item.city}}</text>
+                <text class="job-list-right-context2-text2">{{item.wages}}元/{{item.wages_class}}</text>
+                
+            </view>
+            
+              <view class="job-list-right-context3">
+                <text class="job-list-right-context3-icon" >补</text>
+                <text class="job-list-right-context3-text1">{{item.subsidy}}</text>
+                
+             </view>
+             
+               <view class="job-list-right-context4">
+               <text class="job-list-right-context4-icon" >荐</text>
+                <text class="job-list-right-context4-text1">{{item.presen
+}}/人</text>
+                
+            </view>
+      </view>
+      
+    
+  </navigator>
+
+
+
+</view>
+
+
+</view>
+<loading hidden="{{hidden}}">数据加载中...</loading>
+
+
+
+

@@ -1,0 +1,282 @@
+/* pages/work/work.wxss */
+
+
+page{
+  background-color: white;
+}
+.bao{
+  font-size: 16px;
+  padding: 2px;
+  height: 30rpx;
+  color: white;
+  background-color:#FF3366;
+}
+.job{
+ background-color: white;
+ width: 100%;
+ margin-top: 120rpx;
+}
+
+.weui-search-bar11{
+  top:0;
+  z-index: 9999;
+  position: fixed;
+  padding: 8px 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #FF9933;
+  border-top: 1rpx solid #FF9933;
+  border-bottom: 1rpx solid #FF9933;
+}
+
+
+.searchbar-result {
+  position: relative;
+  margin-top: 4.8em;
+  background-color: #fff;
+  line-height: 1.41176471;
+  font-size: 17px;
+}
+
+
+
+
+
+.job-list{
+   width: 98%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  height:200rpx;
+  margin: 10px auto;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.job-list-left {
+  width: 30%;
+  height: 200rpx;
+  background-color: white;
+  text-align: center;
+}
+.job-list-right {
+  width: 68%;
+  height: 200rpx;
+  margin-left: 2%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content:flex-start;
+}
+.image2 {
+  width: 90px;
+  height: 90px;
+  border: 1px solid #eeeeee;
+  
+}
+.jiaobiao1{
+  position:relative;
+ width: 90px;
+  height: 90px;
+}
+.jiaobiao{
+  position:absolute;
+  left: 0;
+  right: 0;
+  font-size: 10px;
+  
+  width: 90px;
+  height: 90px;
+}
+.job-list-right-context1{
+ display: flex;
+ flex-direction: row;
+ flex-wrap: nowrap;
+ align-items: center;
+ width: 98%;
+ 
+}
+.job-list-right-context1-text1{
+  display: block;
+  font-size: 12pt;
+  width: 77%;
+}
+.job-list-right-context1-text2{
+  display: block;
+  font-size: 10px;
+  width: 23%;
+  color: #999999;
+}
+
+.job-list-right-context2{
+ display: flex;
+ flex-direction: row;
+ flex-wrap: nowrap;
+align-items: center;
+ width: 98%;
+ height: 50rpx;
+
+}
+.job-list-right-context2-text1{
+  display: block;
+  font-size: 12px;
+  width: 30%;
+  color: #999999;
+}
+.job-list-right-context2-text2{
+  display: block;
+  font-size: 14px;
+  width: 70%;
+  text-align: right;
+  color: red;
+}
+.job-list-right-context3{
+  display: block;
+  font-size: 10px;
+  width: 100%;
+  color: #999999;
+  margin-top: 7px;
+}
+.job-list-right-context3-icon{
+  background-color: #FF9933;
+  color: white;
+  margin-right: 7px;
+  padding: 1px;
+  font-size: 10px
+
+
+}
+.job-list-right-context4{
+  display: block;
+  font-size: 10px;
+  width: 100%;
+  color: #999999;
+  margin-top: 4px;
+}
+.job-list-right-context4-icon{
+  background-color: red;
+  color: white;
+  margin-right: 7px;
+  padding: 1px;
+  font-size: 10px
+
+
+}
+/******************************/
+
+.show-btn {
+  margin-top: 100rpx;
+  color: #22cc22;
+}
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 540rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 40%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin: -180rpx 105rpx;
+  border-radius: 36rpx;
+}
+
+.modal-title {
+  padding-top: 50rpx;
+  font-size: 36rpx;
+  color: #030303;
+  text-align: center;
+}
+
+.modal-content {
+  padding: 20rpx 32rpx;
+}
+
+.modal-input {
+  display: flex;
+  
+  border-bottom: 1px solid #ddd;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+}
+
+
+.input {
+  width: 100%;
+  height: 82rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #333;
+  
+}
+
+input-holder {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  border-top: 1px solid #dedede;
+  font-size: 34rpx;
+  line-height: 86rpx;
+}
+
+.btn-cancel {
+  width: 50%;
+  color: #666;
+  text-align: center;
+  border-right: 1px solid #dedede;
+}
+
+.btn-confirm {
+  width: 50%;
+  color: #ec5300;
+  text-align: center;
+  background-color: white
+}
+
+.bao{
+  font-size: 16px;
+  padding: 2px;
+  height: 30rpx;
+  color: white;
+  background-color:#FF3366;
+}
+.modal-input-left{
+  width: 60%
+}
+.modal-input-right{
+  width: 40%
+}
+.input1 {
+  width: 100%;
+  height: 82rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #333;
+  
+  
+}

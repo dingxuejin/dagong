@@ -1,0 +1,17 @@
+/* pages/tuijian/tuijian.wxss */
+image{
+  width:100%;
+  
+}
+page{
+  background-color: white;
+  
+}
+
+.tips{
+  font-size:9pt;
+  color: red;
+  margin: 10px auto;
+  width: 90%;
+
+}
